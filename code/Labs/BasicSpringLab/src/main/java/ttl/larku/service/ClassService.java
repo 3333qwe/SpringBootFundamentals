@@ -3,10 +3,12 @@ package ttl.larku.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.domain.Course;
 import ttl.larku.domain.ScheduledClass;
 
+@Service
 public class ClassService {
 
     private CourseService courseService;

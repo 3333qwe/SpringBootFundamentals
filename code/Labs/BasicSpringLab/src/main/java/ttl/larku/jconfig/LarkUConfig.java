@@ -1,6 +1,7 @@
 package ttl.larku.jconfig;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.dao.inmemory.InMemoryClassDAO;
@@ -11,8 +12,10 @@ import ttl.larku.domain.ScheduledClass;
 import ttl.larku.domain.Student;
 import ttl.larku.service.ClassService;
 import ttl.larku.service.CourseService;
+import ttl.larku.service.RegistrationService;
 
 @Configuration
+@ComponentScan({"ttl.larku.service"})
 public class LarkUConfig {
 
     @Bean
@@ -28,6 +31,12 @@ public class LarkUConfig {
     @Bean
     public BaseDAO<Student> studentDAO() {
         return new InMemoryStudentDAO();
+    }
+
+    @Bean
+    public RegistrationService registrationService() {
+        var a = new RegistrationService();
+        return a;
     }
 
     //TODO - Dependency Injection needed here.
