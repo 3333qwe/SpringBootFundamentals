@@ -13,8 +13,7 @@ public class GenericInjection {
 }
 
 @Configuration
-class MyConfig
-{
+class MyConfig {
     @Bean
     public List<String> letters() {
         return List.of("a", "b", "c");
@@ -33,8 +32,7 @@ class MyConfig
 }
 
 @Component
-class MyApp
-{
+class MyApp {
     @Autowired
     List<List<String>> strings;
 
@@ -45,7 +43,6 @@ class MyApp
     List<Integer> ints;
 
 
-
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.scan("ttl.larku.didemo");
@@ -53,8 +50,11 @@ class MyApp
 
         MyApp app = context.getBean("myApp", MyApp.class);
 
-        app.strings.forEach(System.out::println);
+        app.strings.forEach(l -> {
+            System.out.println("string: " + l);
+        });
 
+        System.out.print("ints: ");
         app.ints.forEach(System.out::println);
 
         System.out.println("Map: " + app.mapOfLists);

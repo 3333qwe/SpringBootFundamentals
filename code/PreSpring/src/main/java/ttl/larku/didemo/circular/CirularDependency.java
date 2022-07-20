@@ -3,7 +3,7 @@ package ttl.larku.didemo.circular;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 class A {
     private B b;
     public A(B b) {
@@ -25,7 +25,7 @@ class A {
     }
 }
 
-@Component
+//@Component
 class B {
     private A a;
     public B(A a) {
